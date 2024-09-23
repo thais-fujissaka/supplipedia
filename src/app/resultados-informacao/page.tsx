@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import produtosMock from '../../../mock/produtos.json';
 import ProdutoCard from "../components/ProdutoCard"
 
-const Resultados: React.FC = () => {
+const ResultadosInformacao: React.FC = () => {
   const searchParams = useSearchParams();
   const categoria = searchParams.get("categoria"); // Capturar a categoria da query string
 
@@ -36,11 +36,11 @@ const Resultados: React.FC = () => {
             />
           ))
         ) : (
-          <p>Nenhum produto encontrado para a categoria {categoria}.</p>
+          <p>Nenhuma categoria de suplemento encontrado para a busca por: <strong>{categoria}</strong>.</p>
         )}
       </div>
     </section>
   );
 };
 
-export default Resultados;
+export default ResultadosInformacao;
