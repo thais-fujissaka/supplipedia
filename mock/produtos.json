@@ -1,0 +1,97 @@
+[
+    {
+        "id_produto": 1,
+        "nome": "Nutri Whey Isolado E Concentrado (Baunilha)",
+        "marca": "Integralmedica",
+        "categoria": "Whey Protein",
+        "preco": 57.59,
+        "descricao": "Suplemento de proteína para ganho de massa muscular.",
+        "imagem_url": "https://m.media-amazon.com/images/I/61BSrxBCvmL._AC_SL1200_.jpg",
+        "url": "https://www.amazon.com.br/Nutri-Isolado-Concentrado-Sabores-Baunilha/dp/B09QZDZKPL/ref=asc_df_B09QZDZKPL/?tag=googleshopp00-20&linkCode=df0&hvadid=709857204927&hvpos=&hvnetw=g&hvrand=17534967892119531694&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197252&hvtargid=pla-1853481273065&mcid=2e8d3b85e5593d6b936a55dd9f73bfe7&gad_source=1&th=1",
+        "vegano": false,
+        "sem_gluten": true,
+        "sem_lactose": false,
+        "atributos": {
+            "proteina": 30,
+            "carboidrato": 80,
+            "valor_energetico_porcao": 461,
+            "peso_liquido_em_gramas": 900,
+            "porcao_em_gramas": 120
+        }
+    },
+    {
+        "id_produto": 2,
+        "nome": "Hiper 100% Whey 900g - Probiótica - Baunilha",
+        "marca": "Probiótica",
+        "categoria": "Whey Protein",
+        "preco": 114.37,
+        "descricao": "Suplemento de proteína para ganho de massa muscular",
+        "imagem_url": "https://supleylab.vtexassets.com/arquivos/ids/158182-800-800?v=638405160931470000&width=800&height=800&aspect=true",
+        "url": "https://www.probiotica.com.br/hiper-100-whey-900g/p",
+        "vegano": false,
+        "sem_gluten": true,
+        "sem_lactose": false,
+        "atributos": {
+            "proteina": 23,
+            "carboidrato": 11,
+            "valor_energetico_porcao": 159,
+            "peso_liquido_em_gramas": 900,
+            "porcao_em_gramas": 40
+        }
+    },
+    {
+        "id_produto": 3,
+        "nome": "Pro Veg Protein 600g - Probiótica - Choconuts",
+        "marca": "Probiótica",
+        "categoria": "Whey Protein",
+        "preco": 167.80,
+        "descricao": "Suplemento de proteína para ganho de massa muscular",
+        "imagem_url": "https://supleylab.vtexassets.com/arquivos/ids/157152-800-800?v=638140552378730000&width=800&height=800&aspect=true",
+        "url": "https://www.probiotica.com.br/pro-veg-protein-600g/p",
+        "vegano": true,
+        "sem_gluten": true,
+        "sem_lactose": true,
+        "atributos": {
+          "proteina": 22,
+          "carboidrato": 3.1,
+          "valor_energetico_porcao": 110,
+          "peso_liquido_em_gramas": 600,
+          "porcao_em_gramas": 30
+        }
+    },
+    {
+        "id_produto": 4,
+        "nome": "Creatina em Pó Pura HARDCORE 300g - Integralmedica",
+        "marca": "Integralmedica",
+        "categoria": "Creatina",
+        "preco": 59.90,
+        "descricao": "Suplemento de creatina",
+        "imagem_url": "https://lojadacreatina.com/cdn/shop/files/Creatina_integral_600x.png?v=1719865238",
+        "url": "https://lojadacreatina.com/products/creatina-integral-medica-300g-hadcore-monohidratada-pura?variant=41100648579185&currency=BRL&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=Cj0KCQjwgL-3BhDnARIsAL6KZ696GgrmEaB6MiEUDi5tFi0co2JHxVOJsURqhJ1rnxpAcg9pYiBXDCYaAiTNEALw_wcB",
+        "vegano": true,
+        "sem_gluten": true,
+        "sem_lactose": true,
+        "atributos": {
+          "forma": "monohidratada",
+          "peso_liquido_em_gramas": 300
+        }
+    },
+    {
+        "id_produto": 4,
+        "nome": "Creatina Pura 250g com Laudo. Monohidratada e Micronizada à 180 mícrons",
+        "marca": "NatusVita",
+        "categoria": "Creatina",
+        "preco": 97.11,
+        "descricao": "Suplemento de creatina",
+        "imagem_url": "https://m.media-amazon.com/images/I/61-RamMVfQL._AC_SL1200_.jpg",
+        "url": "https://www.amazon.com.br/Creatina-Laudo-Monohidratada-Micronizada-m%C3%ADcrons/dp/B0CTRW9T8P/ref=asc_df_B0CTRW9T8P/?tag=googleshopp00-20&linkCode=df0&hvadid=709857205089&hvpos=&hvnetw=g&hvrand=14784080430281604377&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197252&hvtargid=pla-2348491066237&mcid=7e3e4912",
+        "vegano": true,
+        "sem_gluten": true,
+        "sem_lactose": true,
+        "atributos": {
+          "forma": "micronizada",
+          "peso_liquido_em_gramas": 250
+        }
+    }
+  ]
+  
