@@ -16,7 +16,7 @@ export default function Header() {
     const pathname = usePathname();
 
     return (
-        <header className="fixed top-0 left-0 w-screen px-8 pt-4 pb-8 flex flex-col lg:items-center justify-between lg:flex-row bg-verde">
+        <header className="fixed top-0 left-0 w-screen px-8 pt-4 pb-8 flex flex-col lg:items-center justify-between lg:flex-row bg-azul">
             <div className="flex justify-between">
                 <a href="/" aria-label="Ir para página inicial" className="lg:mr-64 2xl:mr-96">
                     <Image className="-translate-x-10 sm:translate-x-0" src="/logo.svg" alt="Logo da Supplipédia" width="196" height="70" />
