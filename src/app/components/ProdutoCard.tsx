@@ -42,7 +42,7 @@ const ProdutoCard: React.FC<ProdutoCardProps> = ({ nome, marca, descricao, image
 
   return (
     <div className="border p-4 rounded">
-      <img src={imagem_url} alt={nome} className="w-full h-48 object-cover" />
+      <img src={imagem_url} alt={nome} className="w-full h-48 object-contain" />
       <h2 className="text-xl font-bold mt-2">{nome}</h2>
       <p>{marca}</p>
       <p>{descricao}</p>
