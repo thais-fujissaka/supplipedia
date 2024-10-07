@@ -17,7 +17,7 @@ const ResultadosProdutos: React.FC = () => {
       <h1 className="text-2xl font-bold">Resultados da Pesquisa</h1>
       
       {/* Exibindo a categoria pesquisada */}
-      <p className="mt-4">Você pesquisou por: <strong>{categoria}</strong></p>
+      <h2 className="mt-4">Você pesquisou por: <strong>{categoria}</strong></h2>
 
       {/* Mapeando e exibindo os produtos filtrados */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">

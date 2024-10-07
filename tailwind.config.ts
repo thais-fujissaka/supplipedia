@@ -10,10 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         branco: "#FFFFFF",
-        azul: "#A3D8F4",
-        verde: "#A7E4A5",
+        azul: "#58A7FE",
+        verdeClaro: "#7FE786",
+        verdeEscuro: "#409450",
         preto: "#000000",
-        cinza: "6B6B6B"
+        cinza: "#6B6B6B",
+        cinzaClaro: "#E3E3D8",
+        amarelo: "#FFF6A5"
       },
     },
   },

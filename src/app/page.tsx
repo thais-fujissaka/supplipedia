@@ -39,7 +39,7 @@ const Homepage: React.FC = () => {
 	};
 	
 	return (
-		<section className="bg-branco flex justify-center mt-12">
+		<section className="flex justify-center mt-12">
       		<div className="">
 				
 				<div className="flex justify-center">
@@ -47,7 +47,7 @@ const Homepage: React.FC = () => {
 				</div>
 
 				{/* Barra de busca */}
-				<div className="flex justify-between items-center border border-preto rounded-full px-4 py-1 mt-8">
+				<div className="flex justify-between items-center border border-preto rounded-full px-4 py-1 mt-8 bg-branco">
 					<input 
 						type="text" 
 						placeholder="Buscar suplemento..." 
@@ -61,8 +61,12 @@ const Homepage: React.FC = () => {
 
 				{/*Botões*/}
 				<div className="flex justify-between space-x-4 py-5 px-4">
+					<div>
 					<PrimaryButton title={"Buscar suplementos"} onClick={handleSubmitToProductsPage} aria-labelledby={"Buscar suplementos"}/>
-					<SecondaryButton title={"Pesquisa Supplipédia"} onClick={handleSubmitToInformationPage} aria-labelledby={"Pesquisa Supplipédia"}/>
+					</div>
+					<div>
+						<SecondaryButton title={"Pesquisa Supplipédia"} onClick={handleSubmitToInformationPage} aria-labelledby={"Pesquisa Supplipédia"}/>
+					</div>
 				</div>
 				
 				<p className="flex justify-center mt-12">Supplipédia, seu guia de suplementação inteligente.</p>
