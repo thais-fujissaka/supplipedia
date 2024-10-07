@@ -20,13 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt">
+    <html className="bg-cinzaClaro" lang="pt">
       <body className={`${sourceSans3.className} antialiased`}>
         <header className="z-40 relative">
           <Header />
         </header>
         
-        <main className="z-30 relative pt-24">
+        <main className="bg-cinzaClaro z-30 relative pt-24">
         {children}
         </main>
       
