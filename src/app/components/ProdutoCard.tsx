@@ -1,7 +1,7 @@
 // biome-ignore lint/style/useImportType: <explanation>
 import React from 'react';
 import PrimaryButton from './PrimaryButton';
-import { getStrategy } from '../strategies/AtributosStrategy';
+import { getStrategy } from '../strategies/categoria-produto/AtributosStrategy';
 
 interface ProdutoCardProps {
   nome: string;
