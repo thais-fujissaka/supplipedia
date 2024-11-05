@@ -92,6 +92,23 @@
           "forma": "micronizada",
           "peso_liquido_em_gramas": 250
         }
+    },
+    {
+        "id_produto": 6,
+        "nome": "Creatina Monohidratada 250g - Growth Supplements",
+        "marca": "Growth Supplements",
+        "categoria": "Creatina",
+        "preco": 78.92,
+        "descricao": "Suplemento de creatina",
+        "imagem_url": "https://www.gsuplementos.com.br/upload/produto/layout/72/produto1-mono-250.webp",
+        "url": "https://www.gsuplementos.com.br/creatina-monohidratada-250gr-growth-supplements-p985931?apwc=Y2FuYWxJbnRlZ3JhY2FvPTc1N3xwcm9kdXRvPTcy&gad_source=1&gclid=Cj0KCQiAoae5BhCNARIsADVLzZd7v8JL7IAg21Ek7tZuK1VTqOd8Lwrz0fjOk-df9wuVE8v7NKZjpWgaAq-yEALw_wcB",
+        "vegano": true,
+        "sem_gluten": true, 
+        "sem_lactose": true,
+        "atributos": {
+          "forma": "monohidratada",
+          "peso_liquido_em_gramas": 250
+        }
     }
   ]
   
