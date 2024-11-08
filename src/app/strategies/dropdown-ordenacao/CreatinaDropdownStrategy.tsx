@@ -1,23 +1,6 @@
-import { MenuOrdenacaoStrategy } from './MenuOrdenacaoStrategy';
+import { DropdownOrdenacaoStrategy } from './DropdownOrdenacaoStrategy';
 
-// Função para calcular proteína por porção de 30g
-const calcularProteinaPor30g = (proteina?: number, porcao_em_gramas?: number): number | null => {
-  if (!proteina || !porcao_em_gramas) return null;
-  return (proteina / porcao_em_gramas) * 30;
-};
-
-// Função para calcular preço por grama de proteína
-const calcularPrecoPorGramaProteina = (
-  preco: number,
-  proteina?: number,
-  peso_liquido_em_gramas?: number,
-  porcao_em_gramas?: number
-): number | null => {
-  if (!proteina || !peso_liquido_em_gramas || !porcao_em_gramas) return null;
-  return preco / (proteina * (peso_liquido_em_gramas / porcao_em_gramas));
-};
-
-export class CreatinaStrategy implements MenuOrdenacaoStrategy {
+export class CreatinaStrategy implements DropdownOrdenacaoStrategy {
   render(atributos: { proteina?: number, valor_energetico_porcao?: number, porcao_em_gramas?: number, peso_liquido_em_gramas?: number }, preco: number): JSX.Element {
     const proteinaPor30g = calcularProteinaPor30g(atributos.proteina, atributos.porcao_em_gramas);
     const precoPorGramaProteina = calcularPrecoPorGramaProteina(preco, atributos.proteina, atributos.peso_liquido_em_gramas, atributos.porcao_em_gramas);

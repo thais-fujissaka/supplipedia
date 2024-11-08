@@ -1,6 +1,6 @@
-import { MenuOrdenacaoStrategy } from './MenuOrdenacaoStrategy';
+import { DropdownOrdenacaoStrategy } from './DropdownOrdenacaoStrategy';
 
-export class WheyProteinStrategy implements MenuOrdenacaoStrategy {
+export class WheyProteinDropdownStrategy implements DropdownOrdenacaoStrategy {
   render(atributos: { proteina?: number, valor_energetico_porcao?: number, porcao_em_gramas?: number, peso_liquido_em_gramas?: number }, preco: number): JSX.Element {
     
     return (
