@@ -40,7 +40,7 @@ const ProdutoCard: React.FC<ProdutoCardProps> = ({ nome, marca, descricao, image
       
       
       {/* Renderizar atributos usando a estratégia */}
-      {strategy.render(atributos, preco, proteinaPor30g, precoPorGramaProteina)}
+      {strategy.render(atributos, preco)}
       
       {/* Comprar */}
       <div className='flex justify-center'>

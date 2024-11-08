@@ -26,6 +26,11 @@ const getOpcoesOrdenacao = (categoria: string | null) => {
   }
 };
 
+// Função para calcular preço por grama de produto
+const calcularPrecoPorGrama = (preco?: number, peso_liquido_em_gramas?: number): number | null => {
+  if (!preco || !peso_liquido_em_gramas) return null;
+  return preco / peso_liquido_em_gramas;
+};
 
 const ResultadosProdutos: React.FC = () => {
   const searchParams = useSearchParams();
@@ -53,6 +58,8 @@ const produtosComAtributosCalculados = produtos
     const precoPorGramaProteina = produto.atributos.proteina && produto.atributos.peso_liquido_em_gramas && produto.atributos.porcao_em_gramas
       ? produto.preco / (produto.atributos.proteina * (produto.atributos.peso_liquido_em_gramas / produto.atributos.porcao_em_gramas))
       : Infinity;
+
+    const precoPorGrama = calcularPrecoPorGrama()
 
     return {
       ...produto,
