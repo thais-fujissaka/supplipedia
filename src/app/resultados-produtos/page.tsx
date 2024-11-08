@@ -38,30 +38,46 @@ const ResultadosProdutos: React.FC = () => {
   const [ordenacao, setOrdenacao] = useState(opcoesOrdenacao[0]?.value || 'preco');
 
   // Função para lidar com a mudança de ordenação
-  const handleOrdenacaoChange = (e) => {
+  const handleOrdenacaoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrdenacao(e.target.value);
   }
 
-  // Filtrar e ordenar os produtos pela categoria
-  const produtosFiltradosOrdenados = [...produtos]
-    .filter(produto => produto.categoria.toLowerCase() === categoria?.toLowerCase())
-    .sort((a,b) => {
-      if (ordenacao === 'preco') {
-        return a.preco - b.preco;
-      } else if (ordenacao === 'peso_liquido') {
-        return b.atributos.peso_liquido_em_gramas - a.atributos.peso_liquido_em_gramas;
-      } else if (ordenacao === 'proteina') {
-        return (b.atributos.proteina || 0) - (a.atributos.proteina || 0);
-      } else if (ordenacao === 'valor_energetico_porcao') {
-        return (a.atributos.valor_energetico_porcao || 0) - (b.atributos.valor_energetico_porcao || 0);
-      } else if (ordenacao === 'proteina_por_30g') {
-        return (b.atributos.)
-      } else if (ordenacao === 'preco_por_grama_proteina') {
-        
-      } else if (ordenacao === 'peso_liquido') {
-        
-      }
-    })
+  // Pré-calcular os atributos derivados para evitar cálculos redundantes
+const produtosComAtributosCalculados = produtos
+  .filter(produto => produto.categoria.toLowerCase() === categoria?.toLowerCase())
+  .map(produto => {
+    const proteinaPor30g = produto.atributos.proteina && produto.atributos.porcao_em_gramas
+      ? (produto.atributos.proteina / produto.atributos.porcao_em_gramas) * 30
+      : 0;
+  
+    const precoPorGramaProteina = produto.atributos.proteina && produto.atributos.peso_liquido_em_gramas && produto.atributos.porcao_em_gramas
+      ? produto.preco / (produto.atributos.proteina * (produto.atributos.peso_liquido_em_gramas / produto.atributos.porcao_em_gramas))
+      : Infinity;
+
+    return {
+      ...produto,
+      proteinaPor30g,
+      precoPorGramaProteina,
+    };
+  });
+
+  // Ordenar os produtos usando os valores pré-calculados
+  const produtosFiltradosOrdenados = produtosComAtributosCalculados.sort((a, b) => {
+    if (ordenacao === 'preco') {
+      return a.preco - b.preco;
+    } else if (ordenacao === 'peso_liquido') {
+      return (b.atributos.peso_liquido_em_gramas || 0) - (a.atributos.peso_liquido_em_gramas || 0);
+    } else if (ordenacao === 'proteina') {
+      return (b.atributos.proteina || 0) - (a.atributos.proteina || 0);
+    } else if (ordenacao === 'valor_energetico_porcao') {
+      return (a.atributos.valor_energetico_porcao || 0) - (b.atributos.valor_energetico_porcao || 0);
+    } else if (ordenacao === 'proteina_por_30g') {
+      return (b.proteinaPor30g || 0) - (a.proteinaPor30g || 0);
+    } else if (ordenacao === 'preco_por_grama_proteina') {
+      return (a.precoPorGramaProteina || 0) - (b.precoPorGramaProteina || 0);
+    }
+  });
+
 
   return (
     <section className="container mx-auto mt-12">
