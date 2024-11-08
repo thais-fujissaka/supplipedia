@@ -2,7 +2,7 @@ import React from 'react';
 import PrimaryButton from './PrimaryButton';
 import { getStrategy } from '../strategies/categoria-produto/AtributosStrategy';
 
-interface ProdutoCardProps {
+interface MenuOrdenacaoProps {
   nome: string;
   marca: string;
   categoria: string;
@@ -20,7 +20,7 @@ interface ProdutoCardProps {
   };
 }
 
-const ProdutoCard: React.FC<ProdutoCardProps> = ({ nome, marca, descricao, imagem_url, url, categoria, preco, atributos }) => {
+const ProdutoCard: React.FC<ProdutoCardProps> = ({ categoria, preco, atributos }) => {
 
   const strategy = getStrategy(categoria);
 

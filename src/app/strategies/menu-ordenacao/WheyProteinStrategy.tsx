@@ -9,6 +9,7 @@ export class WheyProteinStrategy implements MenuOrdenacaoStrategy {
         <option value="valor_energetico_porcao">Valor Energético</option>
         <option value="preco_por_grama_proteina">Preço por Grama de Proteína</option>
         <option value="preco_total">Preço Total</option>
+        <option value="proteina_por_30g"></option>
         </select>
     );
   }
