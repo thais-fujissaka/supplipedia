@@ -1,4 +1,3 @@
-// biome-ignore lint/style/useImportType: <explanation>
 import React from 'react';
 import PrimaryButton from './PrimaryButton';
 import { getStrategy } from '../strategies/categoria-produto/AtributosStrategy';
@@ -17,7 +16,11 @@ interface ProdutoCardProps {
     porcao_em_gramas?: number; // Para Whey Protein
     peso_liquido_em_gramas?: number; // Para Whey Protein e Creatina
     forma?: string; // Para Creatina
-    // Outros atributos específicos para outras categorias
+    // Atributos calculados:
+    proteinaPor30g?: number;
+    precoPorGramaProteina?: number;
+    // Outros atributos específicos para outras categorias  
+
   };
 }
 
