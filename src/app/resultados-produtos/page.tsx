@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from "next/navigation"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import produtos from '../../../mock/produtos.json';
 import ProdutoCard from "../components/ProdutoCard"
 
@@ -32,15 +32,14 @@ const calcularPrecoPorGrama = (preco?: number, peso_liquido_em_gramas?: number):
 };
 
 const ResultadosProdutos: React.FC = () => {
+
   const searchParams = useSearchParams();
   const categoria = searchParams.get("categoria"); // Capturar a categoria da query string
 
   // Obter opções de ordenação com base na categoria
   const opcoesOrdenacao = getOpcoesOrdenacao(categoria);
-
   // Estado para a opção selecionada
   const [ordenacao, setOrdenacao] = useState(opcoesOrdenacao[0]?.value || 'preco');
-
   // Função para lidar com a mudança de ordenação
   const handleOrdenacaoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrdenacao(e.target.value);
@@ -73,7 +72,7 @@ const ResultadosProdutos: React.FC = () => {
     });
 
   // Ordenar os produtos usando os valores pré-calculados
-  const produtosFiltradosOrdenados = produtosComAtributosCalculados.sort((a, b) => {
+  const produtosOrdenados = produtosComAtributosCalculados.sort((a, b) => {
     if (ordenacao === 'preco') {
       return a.preco - b.preco;
     } else if (ordenacao === 'peso_liquido') {
@@ -90,6 +89,19 @@ const ResultadosProdutos: React.FC = () => {
       return (a.atributos.precoPorGrama || 0) - (b.atributos.precoPorGrama || 0);
     return 0;
   });
+
+  // Adicionando estados para os filtros de produtos veganos, sem gluten e sem lactose
+  const [filtroVegano, setFiltroVegano] = useState(false);
+  const [filtroSemGluten, setFiltroSemGluten] = useState(false);
+  const [filtroSemLactose, setFiltroSemLactose] = useState(false);
+
+  // Filtrando produtos baseado nos filtros ativos:
+  const produtosFiltradosOrdenados = produtosOrdenados.filter(produto => {
+    if (filtroVegano && !produto.vegano) return false;
+    if (filtroSemGluten && !produto.sem_gluten) return false;
+    if (filtroSemLactose && !produto.sem_lactose) return false;
+    return true;
+  })
 
   return (
     <section className="container mx-auto mt-12">
@@ -113,6 +125,35 @@ const ResultadosProdutos: React.FC = () => {
           ))}
         </select>
       </div>
+
+      {/* Menu de filtros vegano, sem gluten e sem lactose*/}
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtroVegano}
+            onChange={() => setFiltroVegano(!filtroVegano)}
+          />
+          Vegano
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtroSemGluten}
+            onChange={() => setFiltroSemGluten(!filtroSemGluten)}
+          />
+          Sem Glúten
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtroSemLactose}
+            onChange={() => setFiltroSemLactose(!filtroSemLactose)}
+          />
+          Sem Lactose
+        </label>
+      </div>
+
 
       {/* Mapeando e exibindo os produtos filtrados */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
