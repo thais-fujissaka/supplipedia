@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation"
 import { useState, useEffect } from "react";
 import produtos from '../../../mock/produtos.json';
 import ProdutoCard from "../components/ProdutoCard"
-import { getDropdownStrategy } from "../strategies/dropdown-ordenacao/DropdownOrdenacaoStrategy";
 
 const getOpcoesOrdenacao = (categoria: string | null) => {
   switch (categoria?.toLowerCase()) {
@@ -48,25 +47,30 @@ const ResultadosProdutos: React.FC = () => {
   }
 
   // Pré-calcular os atributos derivados para evitar cálculos redundantes
-const produtosComAtributosCalculados = produtos
-  .filter(produto => produto.categoria.toLowerCase() === categoria?.toLowerCase())
-  .map(produto => {
-    const proteinaPor30g = produto.atributos.proteina && produto.atributos.porcao_em_gramas
-      ? (produto.atributos.proteina / produto.atributos.porcao_em_gramas) * 30
-      : 0;
-  
-    const precoPorGramaProteina = produto.atributos.proteina && produto.atributos.peso_liquido_em_gramas && produto.atributos.porcao_em_gramas
-      ? produto.preco / (produto.atributos.proteina * (produto.atributos.peso_liquido_em_gramas / produto.atributos.porcao_em_gramas))
-      : Infinity;
+  const produtosComAtributosCalculados = produtos
+    .filter(produto => produto.categoria.toLowerCase() === categoria?.toLowerCase())
+    .map(produto => {
+      const proteinaPor30g = produto.atributos.proteina && produto.atributos.porcao_em_gramas
+        ? (produto.atributos.proteina / produto.atributos.porcao_em_gramas) * 30
+        : 0;
+    
+      const precoPorGramaProteina = produto.atributos.proteina && produto.atributos.peso_liquido_em_gramas && produto.atributos.porcao_em_gramas
+        ? produto.preco / (produto.atributos.proteina * (produto.atributos.peso_liquido_em_gramas / produto.atributos.porcao_em_gramas))
+        : Infinity;
 
-    const precoPorGrama = calcularPrecoPorGrama()
+      const precoPorGrama = calcularPrecoPorGrama(produto.preco, produto.atributos.peso_liquido_em_gramas);
 
-    return {
-      ...produto,
-      proteinaPor30g,
-      precoPorGramaProteina,
-    };
-  });
+      return {
+        ...produto,
+        atributos: {
+        ...produto.atributos,
+        proteinaPor30g,
+        precoPorGramaProteina,
+        precoPorGrama
+      }
+        
+      };
+    });
 
   // Ordenar os produtos usando os valores pré-calculados
   const produtosFiltradosOrdenados = produtosComAtributosCalculados.sort((a, b) => {
@@ -79,12 +83,13 @@ const produtosComAtributosCalculados = produtos
     } else if (ordenacao === 'valor_energetico_porcao') {
       return (a.atributos.valor_energetico_porcao || 0) - (b.atributos.valor_energetico_porcao || 0);
     } else if (ordenacao === 'proteina_por_30g') {
-      return (b.proteinaPor30g || 0) - (a.proteinaPor30g || 0);
+      return (b.atributos.proteinaPor30g || 0) - (a.atributos.proteinaPor30g || 0);
     } else if (ordenacao === 'preco_por_grama_proteina') {
-      return (a.precoPorGramaProteina || 0) - (b.precoPorGramaProteina || 0);
-    }
+      return (a.atributos.precoPorGramaProteina || 0) - (b.atributos.precoPorGramaProteina || 0);
+    } else if (ordenacao === 'preco_por_grama')
+      return (a.atributos.precoPorGrama || 0) - (b.atributos.precoPorGrama || 0);
+    return 0;
   });
-
 
   return (
     <section className="container mx-auto mt-12">
@@ -93,7 +98,21 @@ const produtosComAtributosCalculados = produtos
       <h1 className="mt-4">Você pesquisou por: <strong>{categoria}</strong></h1>
 
       {/* Seletor de ordenação de atributos */}
-
+      <div className="mt-4">
+        <label htmlFor="ordenacao" className="mr-2">Ordenar por:</label>
+        <select
+          id="ordenacao"
+          value={ordenacao}
+          onChange={handleOrdenacaoChange}
+          className="border rounded p-2"
+        >
+          {opcoesOrdenacao.map(opcao => (
+            <option key={opcao.value} value={opcao.value}>
+              {opcao.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
       {/* Mapeando e exibindo os produtos filtrados */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
