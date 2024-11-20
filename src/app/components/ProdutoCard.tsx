@@ -43,7 +43,8 @@ const ProdutoCard: React.FC<ProdutoCardProps> = ({ nome, marca, descricao, image
       {strategy.render(atributos, preco)}
       
       {/* Comprar */}
-      <div className='flex justify-center'>
+      <div className='flex space-x-4'>
+        <p className='px-8 py-3 font-bold'>R${preco.toFixed(2)}</p>
         <PrimaryButton title={"Comprar"} onClick={() => window.open(url)} aria-labelledby={"Comprar"}/>
       </div>
       
