@@ -10,7 +10,8 @@ const getOpcoesOrdenacao = (categoria: string | null) => {
     case 'creatina':
       return [
         { label: 'Preço', value: 'preco' },
-        { label: 'Peso líquido', value: 'peso_liquido'}
+        { label: 'Peso líquido', value: 'peso_liquido'},
+        { label: 'Preço por grama', value: 'preco_por_grama'}
       ];
     case 'whey protein':
       return [
@@ -94,12 +95,20 @@ const ResultadosProdutos: React.FC = () => {
   const [filtroVegano, setFiltroVegano] = useState(false);
   const [filtroSemGluten, setFiltroSemGluten] = useState(false);
   const [filtroSemLactose, setFiltroSemLactose] = useState(false);
+  const [filtroMonohidratada, setFiltroMonohidratada] = useState(false);
+  const [filtroMicronizada, setFiltroMicronizada] = useState(false);
 
   // Filtrando produtos baseado nos filtros ativos:
   const produtosFiltradosOrdenados = produtosOrdenados.filter(produto => {
     if (filtroVegano && !produto.vegano) return false;
     if (filtroSemGluten && !produto.sem_gluten) return false;
     if (filtroSemLactose && !produto.sem_lactose) return false;
+
+    if (categoria == 'creatina') {
+      console.log("AAAAA")
+      if (filtroMicronizada && !produto.atributos.micronizada) return false;
+      if (filtroMonohidratada && !produto.atributos.monohidratada) return false;
+    }
     return true;
   })
 
@@ -152,6 +161,25 @@ const ResultadosProdutos: React.FC = () => {
           />
           Sem Lactose
         </label>
+        { categoria === "creatina"
+          ? <span>
+              <label>
+                <input type="checkbox" 
+                  checked={filtroMonohidratada} 
+                  onChange={() => setFiltroMonohidratada(!filtroMonohidratada)}
+                />
+              Monohidratada
+              </label>
+              <label>
+              <input type="checkbox" 
+                checked={filtroMicronizada} 
+                onChange={() => setFiltroMicronizada(!filtroMicronizada)}
+              />
+              Micronizada
+              </label>
+            </span>
+          : null
+        }
       </div>
 
 
