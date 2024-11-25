@@ -31,12 +31,6 @@ const Homepage: React.FC = () => {
 		}
 	};
 
-	// Função para lidar com a tecla pressionada
-	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === 'Enter') {
-			handleSubmitToInformationPage();
-		}
-	};
 	
 	return (
 		<section className="flex justify-center mt-12">
@@ -53,7 +47,6 @@ const Homepage: React.FC = () => {
 						placeholder="Buscar suplemento..." 
 						value={search} 
 						onChange={handleSearch}
-						onKeyDown={handleKeyDown} // Adicionando o evento de tecla
 						className="w-full focus:outline-none"
 					/>
 					<IoMdSearch />
@@ -62,10 +55,10 @@ const Homepage: React.FC = () => {
 				{/*Botões*/}
 				<div className="flex justify-between space-x-4 py-5 px-4">
 					<div>
-					<PrimaryButton title={"Buscar suplementos"} onClick={handleSubmitToProductsPage} aria-labelledby={"Buscar suplementos"}/>
+					<PrimaryButton title={"Buscar produtos"} onClick={handleSubmitToProductsPage} aria-labelledby={"Buscar produtos"}/>
 					</div>
 					<div>
-						<SecondaryButton title={"Pesquisa Supplipédia"} onClick={handleSubmitToInformationPage} aria-labelledby={"Pesquisa Supplipédia"}/>
+						<SecondaryButton title={"Pesquisa Supplipédia"} onClick={handleSubmitToInformationPage} aria-labelledby={"Pesquisar categoria"}/>
 					</div>
 				</div>
 				

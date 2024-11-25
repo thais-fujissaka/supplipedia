@@ -72,7 +72,8 @@
         "sem_gluten": true,
         "sem_lactose": true,
         "atributos": {
-          "forma": "monohidratada",
+          "monohidratada": true,
+          "micronizada": false,
           "peso_liquido_em_gramas": 300
         }
     },
@@ -89,7 +90,8 @@
         "sem_gluten": true,
         "sem_lactose": true,
         "atributos": {
-          "forma": "micronizada",
+          "monohidratada": true,
+          "micronizada": true,
           "peso_liquido_em_gramas": 250
         }
     },
@@ -106,9 +108,86 @@
         "sem_gluten": true, 
         "sem_lactose": true,
         "atributos": {
-          "forma": "monohidratada",
+          "monohidratada": true,
+          "micronizada": false,
           "peso_liquido_em_gramas": 250
         }
+    },
+    {
+      "id_produto": 7,
+      "nome": "FRESHVEGAN™ CACAU - POTE 520g",
+      "marca": "Dux",
+      "categoria": "Whey Protein",
+      "preco": 149.90,
+      "descricao": "Proteína de origem vegetal 100% natural, a base de ervilha e arroz.",
+      "imagem_url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcREsIGqZwC-Xz8J9vYX2KzMI5OXsfrq8MadEzhVOvyUgsMfyoCy2b3QeEGLLp_M4TD53k1b6FwdaTDI-Z6Mtj1iAYa3XSkQYNr6aAKr54DpPFzOmzfbVILZ&usqp=CAE",
+      "url": "https://www.duxhumanhealth.com/fresh-vegan-cacau-520g/p?idsku=2951&network=x&utm_source=google&utm_medium=cpc&utm_campaign=conversao-aquisicao-google-pmax-dux-sazonais_&utm_content=&utm_term=-&cupom=clientevip15&gad_source=4&gclid=Cj0KCQiA0fu5BhDQARIsAMXUBOIqxaT7xRniG8q7ri7dACzgNRYF8owWpV54NgWFBFvFScL40vnV6-oaAgy-EALw_wcB",
+      "vegano": true,
+      "sem_gluten": true, 
+      "sem_lactose": true,
+      "atributos": {
+        "proteina": 20,
+        "carboidrato": 1,
+        "valor_energetico_porcao": 106,
+        "peso_liquido_em_gramas": 520,
+        "porcao_em_gramas": 26
+      }
+    },
+    {
+      "id_produto": 8,
+      "nome": "Soy Protein (Proteína isolada de soja) 1kg - Growth Supplements",
+      "marca": "Growth Supplements",
+      "categoria": "Whey Protein",
+      "preco": 67.50,
+      "descricao": "Proteína de origem vegetal 100% natural, a base de ervilha e arroz.",
+      "imagem_url": "https://www.gsuplementos.com.br/upload/produto/layout/163/produto-principal-v3.webp",
+      "url": "https://www.gsuplementos.com.br/soy-protein-proteina-isolada-de-soja-1kg-growth-supplements-p988010?apwc=Y2FuYWxJbnRlZ3JhY2FvPTc1N3xwcm9kdXRvPTE2Mw%3D%3D&gad_source=4&gclid=Cj0KCQiA0fu5BhDQARIsAMXUBOIucWVVs4k7giA5KfWu4HSgaQ7j2cCnO3cFMGctfR1azFUuC7hlW5AaAmohEALw_wcB",
+      "vegano": true,
+      "sem_gluten": true, 
+      "sem_lactose": true,
+      "atributos": {
+        "proteina": 24,
+        "carboidrato": 2.1,
+        "valor_energetico_porcao": 125,
+        "peso_liquido_em_gramas": 1000,
+        "porcao_em_gramas": 30
+      }
+    },
+    {
+      "id_produto": 9,
+      "nome": "Creatina em Pó Black Skull Creatine Turbo Limão 300g",
+      "marca": "Black Skull",
+      "categoria": "Creatina",
+      "preco": 27.90,
+      "descricao": "Creatina em Pó Black Skull Creatine Turbo Limão 300g",
+      "imagem_url": "https://drogariasp.vteximg.com.br/arquivos/ids/1125649-1000-1000/846740---Creatina-em-Po-Black-Skull-Creatine-Turbo-Limao-300g_0001__0007_Novo-Pote-Creatine-Turbo-300g-Limao---789870873.png?v=638556281650170000",
+      "url": "https://www.drogariasaopaulo.com.br/creatina-em-po-black-skull-creatine-turbo-limao-300g/p?idsku=846740&utm_source=google&utm_medium=cpc&utm_campaign=google-shp",
+      "vegano": true,
+      "sem_gluten": true,
+      "sem_lactose": true,
+      "atributos": {
+        "monohidratada": true,
+        "micronizada": false,
+        "peso_liquido_em_gramas": 300
+      }
+    },
+    {
+      "id_produto": 10,
+      "nome": "CREATINA MAX TITANIUM 300G",
+      "marca": "Max Titanium",
+      "categoria": "Creatina",
+      "preco": 67.90,
+      "descricao": "CREATINA MAX TITANIUM 300G",
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQhOVUwEtVhOIQpaTeewGNU8EyF_wmPZs2TEsBkdPMAZUVUQUeiZKI8Hc5B2SOtGotUz0H_hNKmaPv7-idumRPOR05TgfZgs3-GFZ3VDcKhUBHqVGzqqaoX&usqp=CAE",
+      "url": "https://www.drogasil.com.br/creatina-max-titanium-300g-1123208.html?srsltid=AfmBOorG_DwIdaKD89He7umLPBU9Ndx3lUIoCMOKLAuY9eR0Hj8gVO7ZPqg",
+      "vegano": true,
+      "sem_gluten": true,
+      "sem_lactose": true,
+      "atributos": {
+        "monohidratada": true,
+        "micronizada": false,
+        "peso_liquido_em_gramas": 300
+      }
     }
   ]
   
