@@ -21,12 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html className="bg-cinzaClaro flex justify-center mx-0" lang="pt">
-      <body className={`${sourceSans3.className} antialiased`}>
+      <body className={`${sourceSans3.className} antialiased bg-cinzaClaro`}>
         <header className="z-40 relative">
           <Header />
         </header>
         
-        <main className="bg-cinzaClaro z-30 relative pt-24">
+        <main className="z-30 relative pt-24">
         {children}
         </main>
       
