@@ -47,7 +47,7 @@ const Homepage: React.FC = () => {
 						placeholder="Buscar suplemento..." 
 						value={search} 
 						onChange={handleSearch}
-						className="w-full focus:outline-none"
+						className="w-full h-8 border-none active:border-none focus:outline-none focus:ring-0"
 					/>
 					<IoMdSearch />
 				</div>
