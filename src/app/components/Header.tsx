@@ -36,7 +36,7 @@ export default function Header() {
                     onClick={() => setOpenMenu(false)}
                     aria-label="Fechar menu"
                 >
-                    <MdDehaze />
+                <MdDehaze />
                 </button>
                 {navLinks.map(link => (
                     <a key={link.path} 
