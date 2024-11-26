@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="bg-cinzaClaro flex justify-center" lang="pt">
+    <html className="bg-cinzaClaro flex justify-center mx-0" lang="pt">
       <body className={`${sourceSans3.className} antialiased`}>
         <header className="z-40 relative">
           <Header />

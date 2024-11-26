@@ -113,96 +113,111 @@ const ResultadosProdutos: React.FC = () => {
   })
 
   return (
-    <section className="container mx-auto mt-12">
-      
-      {/* Exibindo a categoria pesquisada */}
-      <h1 className="mt-4">Você pesquisou por: <strong>{categoria}</strong></h1>
+    <section className="container mx-4 mt-12 flex">
 
-      {/* Seletor de ordenação de atributos */}
-      <div className="mt-4">
-        <label htmlFor="ordenacao" className="mr-2">Ordenar por:</label>
-        <select
-          id="ordenacao"
-          value={ordenacao}
-          onChange={handleOrdenacaoChange}
-          className="border rounded p-2"
-        >
-          {opcoesOrdenacao.map(opcao => (
-            <option key={opcao.value} value={opcao.value}>
-              {opcao.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      <aside className="w-64 h-screen bg-cinzaClaro p-4">
+          <h2 className="text-xl font-bold mb-4 text-preto">Filtros</h2>
 
-      {/* Menu de filtros vegano, sem gluten e sem lactose*/}
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtroVegano}
-            onChange={() => setFiltroVegano(!filtroVegano)}
-          />
-          Vegano
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtroSemGluten}
-            onChange={() => setFiltroSemGluten(!filtroSemGluten)}
-          />
-          Sem Glúten
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtroSemLactose}
-            onChange={() => setFiltroSemLactose(!filtroSemLactose)}
-          />
-          Sem Lactose
-        </label>
-        { categoria === "creatina"
-          ? <span>
-              <label>
-                <input type="checkbox" 
-                  checked={filtroMonohidratada} 
-                  onChange={() => setFiltroMonohidratada(!filtroMonohidratada)}
-                />
-              Monohidratada
-              </label>
-              <label>
-              <input type="checkbox" 
-                checked={filtroMicronizada} 
-                onChange={() => setFiltroMicronizada(!filtroMicronizada)}
+          {/* Filtros Gerais */}
+          <div className="space-y-4">
+            <label className="flex items-center space-x-2 text-cinza">
+              <input
+                type="checkbox"
+                checked={filtroVegano}
+                onChange={() => setFiltroVegano(!filtroVegano)}
+                className="w-4 h-4 text-verdeClaro border-cinza rounded focus:ring-verdeEscuro"
               />
-              Micronizada
+              <span>Vegano</span>
+            </label>
+            <label className="flex items-center space-x-2 text-cinza">
+              <input
+                type="checkbox"
+                checked={filtroSemGluten}
+                onChange={() => setFiltroSemGluten(!filtroSemGluten)}
+                className="w-4 h-4 text-verdeClaro border-cinza rounded focus:ring-verdeEscuro"
+              />
+              <span>Sem Glúten</span>
+            </label>
+            <label className="flex items-center space-x-2 text-cinza">
+              <input
+                type="checkbox"
+                checked={filtroSemLactose}
+                onChange={() => setFiltroSemLactose(!filtroSemLactose)}
+                className="w-4 h-4 text-verdeClaro border-cinza rounded focus:ring-verdeEscuro"
+              />
+              <span>Sem Lactose</span>
+            </label>
+          </div>
+
+          {/* Filtros Específicos (Creatina) */}
+          {categoria === "creatina" && (
+            <div className="mt-6 space-y-4 border-t border-cinza pt-4">
+              <h3 className="text-lg font-semibold text-preto">Creatina</h3>
+              <label className="flex items-center space-x-2 text-cinza">
+                <input
+                  type="checkbox"
+                  checked={filtroMonohidratada}
+                  onChange={() => setFiltroMonohidratada(!filtroMonohidratada)}
+                  className="w-4 h-4 text-azul border-cinza rounded focus:ring-azul"
+                />
+                <span>Monohidratada</span>
               </label>
-            </span>
-          : null
-        }
-      </div>
+              <label className="flex items-center space-x-2 text-cinza">
+                <input
+                  type="checkbox"
+                  checked={filtroMicronizada}
+                  onChange={() => setFiltroMicronizada(!filtroMicronizada)}
+                  className="w-4 h-4 text-azul border-cinza rounded focus:ring-azul"
+                />
+                <span>Micronizada</span>
+              </label>
+            </div>
+          )}
+      </aside>
+      
+      <section>
+        {/* Exibindo a categoria pesquisada */}
+          <h1 className="mt-4">Você pesquisou por: <strong>{categoria}</strong></h1>
 
+        {/* Seletor de ordenação de atributos */}
+        <div className="mt-4">
+          <label htmlFor="ordenacao" className="mr-2">Ordenar por:</label>
+          <select
+            id="ordenacao"
+            value={ordenacao}
+            onChange={handleOrdenacaoChange}
+            className="border rounded p-2"
+          >
+            {opcoesOrdenacao.map(opcao => (
+              <option key={opcao.value} value={opcao.value}>
+                {opcao.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      {/* Mapeando e exibindo os produtos filtrados */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {produtosFiltradosOrdenados.length > 0 ? (
-          produtosFiltradosOrdenados.map(produto => (
-            <ProdutoCard
-              key={produto.id_produto}
-              nome={produto.nome}
-              marca={produto.marca}
-              categoria={produto.categoria}
-              preco={produto.preco}
-              descricao={produto.descricao}
-              imagem_url={produto.imagem_url}
-              url={produto.url}
-              atributos={produto.atributos}
-            />
-          ))
-        ) : (
-          <p>Nenhum produto encontrado para a categoria {categoria}.</p>
-        )}
-      </div>
+        {/* Mapeando e exibindo os produtos filtrados */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {produtosFiltradosOrdenados.length > 0 ? (
+            produtosFiltradosOrdenados.map(produto => (
+              <ProdutoCard
+                key={produto.id_produto}
+                nome={produto.nome}
+                marca={produto.marca}
+                categoria={produto.categoria}
+                preco={produto.preco}
+                descricao={produto.descricao}
+                imagem_url={produto.imagem_url}
+                url={produto.url}
+                atributos={produto.atributos}
+              />
+            ))
+          ) : (
+            <p>Nenhum produto encontrado para a categoria {categoria}.</p>
+          )}
+        </div>
+      </section>
+      
     </section>
   );
 };
