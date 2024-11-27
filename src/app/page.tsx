@@ -34,7 +34,7 @@ const Homepage: React.FC = () => {
 	
 	return (
 		<section className="flex justify-center mt-12">
-      		<div className="">
+      		<div className="pt-8">
 				
 				<div className="flex justify-center">
 					<a><Image src="/logo.svg" alt="Supplipédia" width={458} height={132}></Image></a>
