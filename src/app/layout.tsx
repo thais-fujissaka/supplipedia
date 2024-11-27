@@ -26,7 +26,7 @@ export default function RootLayout({
           <Header />
         </header>
         
-        <main className="z-30 relative pt-24">
+        <main className="z-30 relative pt-12">
         {children}
         </main>
       

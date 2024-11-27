@@ -3,8 +3,8 @@ import { InformacaoStrategy } from './InformacaoStrategy';
 export class CreatinaStrategy implements InformacaoStrategy {
     render() : JSX.Element {
         return (
-            <section className='max-w-3xl'>
-                <h2 className='font-bold text-3xl pb-4'>Creatina</h2>
+            <section className='max-w-3xl mx-auto px-4 py-8 space-y-8 bg-branco border border-preto'>
+                <h2 className='font-bold text-3xl text-preto underline decoration-verdeClaro pb-4 text-center border-b border-gray-300'>Creatina</h2>
 
                 <section className='my-4'>
                     <h3 className='font-bold text-2xl'>O que é?</h3>
