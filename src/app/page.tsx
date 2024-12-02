@@ -62,7 +62,7 @@ const Homepage: React.FC = () => {
 					</div>
 				</div>
 				
-				<p className="flex justify-center mt-12">Supplipédia, seu guia de suplementação inteligente.</p>
+				<p className="flex justify-center mt-12">Informação e saúde, direto ao ponto.</p>
 			</div>
     	</section>
   	);
